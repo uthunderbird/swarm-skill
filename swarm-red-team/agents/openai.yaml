@@ -1,0 +1,4 @@
+interface:
+  display_name: "Swarm Red Team"
+  short_description: "Full modular red-team critique process"
+  default_prompt: "Use $swarm-red-team to run a full modular red-team critique of this target."

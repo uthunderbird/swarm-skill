@@ -1,0 +1,4 @@
+interface:
+  display_name: "Swarm Iterate"
+  short_description: "Improve docs via swarm critique loops"
+  default_prompt: "Use $swarm-iterate to iteratively improve this target document with repeated swarm and swarm-red-team rounds."

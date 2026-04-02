@@ -1,0 +1,4 @@
+interface:
+  display_name: "Swarm Mode"
+  short_description: "Full modular Swarm exploration process"
+  default_prompt: "Use $swarm-mode to run a full modular Swarm analysis for this problem."
