@@ -3,6 +3,13 @@
 Swarm-family skills packaged as an `Agent Skills` repository for compatible
 agent clients.
 
+**What you get.** Point your agent at a hard, open question — a plan, an
+architecture decision, a design you are not sure about — and instead of one
+confident answer you get a structured multi-expert pass over it: the angles you
+did not think of, the objections your idea has to survive, and a document you
+can defend. Two of the skills go further and run adversarial rounds until the
+idea either crystallizes or visibly collapses.
+
 > Warning
 > Use these prompts with `effort=low`, or `none` when that option is
 > available. Higher effort usually does not improve quality here and can
@@ -33,6 +40,11 @@ This is useful when:
   - critique-first adversarial variant
 - `swarm-iterate`
   - iterative critique-and-repair wrapper
+- `grill-me-well-done`
+  - human-in-the-loop crucible: interview, deepen, then attack until the idea
+    crystallizes or dies
+- `polish`
+  - convergence loop that hardens a finished document to a defined bar
 - `swarm-shared`
   - shared protocol package used by the Swarm skills
 
@@ -47,6 +59,19 @@ This is useful when:
 - `swarm-iterate`
   - use when one pass is not enough and you want repeated critique-and-repair
     rounds on the same document or artifact
+- `grill-me-well-done`
+  - use when the idea is still mostly in your head and you want to be
+    interviewed out of it: the skill grills you round after round, builds the
+    document from your answers, then attacks it until it either crystallizes or
+    dies. The most expensive skill here — it announces its cost before starting
+- `polish`
+  - use when the document already exists and is finished: it runs cold,
+    no-parent-context critique rounds from rotating angles and repairs every
+    must-fix and should-fix finding until a fresh cold reader finds nothing left
+
+The three hardening skills differ in what they assume you already have.
+`swarm-iterate` improves openly, `polish` converges a finished draft to a bar,
+and `grill-me-well-done` starts before the draft exists.
 
 ## Format
 
@@ -123,3 +148,18 @@ inspect how the context was built.
 - if you publish this repository, keep the skill directory names aligned with
   the `name:` field in each `SKILL.md`
 - support for fields such as `allowed-tools` depends on the client
+- `grill-me-well-done` and `polish` invoke `swarm-mode` and `swarm-red-team` as
+  subagents. Their prompt templates carry `/absolute/path/to/<skill>`
+  placeholders — replace them with the real install paths on your machine
+- `grill-me-well-done` is named to avoid collision with the unrelated and more
+  common `grill-me` skill name
+
+## License
+
+MIT.
+
+## Who builds this
+
+Built by Daniyar Supiyev. I consult on AI agent systems — building them, and
+fixing the ones that misbehave in production — at
+[Forbidden Fundamentals](https://forbiddenfundamentals.com).
